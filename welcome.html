@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- logo -->
+
+  <link rel="icon" href="pngtree-beautiful-admin-roles-line-vector-icon-png-image_2035379.jpg">
      <!-- jquery -->
      <script
      src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -19,6 +22,18 @@
      integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
      crossorigin="anonymous"
    ></script>
+    <!-- Awesome font -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Include jQuery library and jQuery Zebra_Dialog on your web page. -->
+    <script src="Powerful-jQuery-Dialog-Box-Plugin-Zebra-Dialog/dist/zebra_dialog.min.js"></script>
+    <script src="Powerful-jQuery-Dialog-Box-Plugin-Zebra-Dialog/dist/zebra_dialog.src.js"></script>
+
+    <!-- Include jQuery Zebra_Dialog to style your plugin. -->
+    <link rel="stylesheet" href="Powerful-jQuery-Dialog-Box-Plugin-Zebra-Dialog/dist/css/materialize/zebra_dialog.css" type="text/css">
+    
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,6 +41,15 @@
     <title>save student data</title>
 </head>
 <body>
+  <!-- Sidebar -->
+
+  <div  class ="item">
+    <a id="home" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a id="data" href="#"><i class="fa fa-fw fa-table"></i> Saved Data</a>
+    <a href="#library"><i class="fa fa-fw fa-book"></i> Library</a>
+    <a id="logout" href="#"><i class="fa fa-fw fa-sign-out"></i>Logout</a>
+       
+  </div>
 
     <!-- ADDING STUDENT DETAILS -->
     <div class="container">
@@ -74,6 +98,7 @@
 
 
               <br>
+              
              
 
 
@@ -104,12 +129,30 @@
     <script src="welcome.js"></script>
 
 
+  <br>
+  
 
 
-    <!-- //////////////////////////////DISPLAYING THE DATA ////////////////// -->
 
-    <div class="container" id="show-student">
+
+    <div class="bottom">
+      <h3>Select Branch to upload student study material</h3>
+      <br>
+
+      <select class="form-control"  id="branch">
+        <option value="ME">Mechanical Engineering</option>
+        <option value="EE">Electrical Engineering</option>
+        <option value="CE">Civil Engineering</option>
+        <option value="CSE">Computer Science Engineering</option>
+      </select>
+      <br>
       
+      <label for="myfile">Select a file:</label>
+      <input type="file" id="myfile" name="myfile"><br><br>
+      <input type="submit">
+
+
+
     </div>
 
     
@@ -117,24 +160,13 @@
 
        <!-- Sign OUT -->
        <br>
-    <div class="container" id = "logout form">
-        <button 
-            id="logout-button"
-            type="button"
-            class="btn btn-danger btn-lg btn-block"
-          >logout
-        </button>      
 
-    </div>
+
+       
+    
 
 <script>
-      //Button listner for logout
 
-  $("#logout-button").click(function(){
-    firebase.auth().signOut();
-    console.log("logged out")
-
-  });
 
 
 
@@ -179,6 +211,10 @@ var dbRef = firebase.database().ref().child("add-std");
        
 
     });
+
+
+
+
 </script>
 
 

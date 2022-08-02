@@ -1,10 +1,17 @@
+// save data
+
+$('#data').click(function() {
+  window.location.href = "data.html";
+  return false;
+});
 
 
+// logout function ///////////////////
 firebase.auth().onAuthStateChanged((user)=>{
     if(!user){
         location.replace("index.html")
     }
-})
+});
 
 /////////////////////////////////////////////////////
 // saving data to our database....
@@ -43,6 +50,23 @@ const getElementVal = (id) => {
   return document.getElementById(id).value;
 };
 
-
+// sign out //////////////
+$(document).ready(function() {
+  // show a dialog box when clicking on a link
+  $("#logout").on('click', function(e) {
+      e.preventDefault();
+      $.Zebra_Dialog('<strong>Do you want to Logout?</strong>', {
+          'type':     'question',
+          'buttons':  [
+                          {caption: 'Yes', callback: function() { 
+                            firebase.auth().signOut();
+                            console.log("logged out")
+                          }},
+                          {caption: 'No', callback: function() { }},
+                          {caption: 'Cancel', callback: function() { }}
+                      ]
+      });
+  });
+});
 
 
